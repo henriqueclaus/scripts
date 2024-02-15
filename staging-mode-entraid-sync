@@ -20,3 +20,4 @@ To turn off Microsoft Entra Connect Sync staging mode in PowerShell, run the bel
 $ADSyncSettings = Get-ADSyncGlobalSettings
 ($ADSyncSettings.parameters | Where-Object { $_.Name -eq "Microsoft.Synchronize.StagingMode" }).value = "False"
 Set-ADSyncGlobalSettings $ADSyncSettings
+
