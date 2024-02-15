@@ -1,0 +1,22 @@
+# Microsoft Entra Connect Sync staging mode #
+
+Run the below commands to check the current Microsoft Entra Connect Sync staging mode status. 
+
+$ADSyncSettings = Get-ADSyncGlobalSettings
+($ADSyncSettings.parameters | Where-Object { $_.Name -eq "Microsoft.Synchronize.StagingMode" }).value
+
+One of the results will appear:
+True: Staging mode is enabled 
+False: Staging mode is disabled 
+
+# Enable Microsoft Entra Connect Sync staging mode with PowerShell #
+
+$ADSyncSettings = Get-ADSyncGlobalSettings
+($ADSyncSettings.parameters | Where-Object { $_.Name -eq "Microsoft.Synchronize.StagingMode" }).value = "True"
+Set-ADSyncGlobalSettings $ADSyncSettings
+
+To turn off Microsoft Entra Connect Sync staging mode in PowerShell, run the below commands.
+
+$ADSyncSettings = Get-ADSyncGlobalSettings
+($ADSyncSettings.parameters | Where-Object { $_.Name -eq "Microsoft.Synchronize.StagingMode" }).value = "False"
+Set-ADSyncGlobalSettings $ADSyncSettings
