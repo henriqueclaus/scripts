@@ -1,9 +1,10 @@
 Start/Stop/Restart VMs no Azure com Tags
-Automação em Powershell para ligar VMs buscando Tag
 
 # Requisitos para a utilização do script #
 # Conta de automação no Azure: A conta deve ter a identidade gerenciada atribuída pelo sistema ativada #
 # Permissão RBAC para as ações start/stop/restart, das VMs: Virtual Machine Contributor #
+
+## Automação em Powershell para ligar VMs buscando Tag ##
 
 # Sign in to Azure using the managed identity
 $AzureConnection = Connect-AzAccount -Identity
@@ -14,7 +15,7 @@ $azVMs = Get-AzVM | Where-Object {$_.Tags.start -eq 'StartVM-SAT-1AM'}
 ## Realiza o start das VMs com o valor "startVM-SAT-1AM"
 $azVMS | start-AzVM
 
-Automação em Powershell para desligar VMs buscando Tag
+## Automação em Powershell para desligar VMs buscando Tag ##
 
 # Sign in to Azure using the managed identity
 $AzureConnection = Connect-AzAccount -Identity
@@ -25,7 +26,7 @@ $azVMs = Get-AzVM | Where-Object {$_.Tags.stop -eq 'StopVM-SAT-8PM'}
 ## Realiza o restart das VMs com o valor "StopVM-SAT-8PM"
 $azVMS | stop-AzVM
 
-Automação em Powershell para reiniciar VMs buscando Tag
+## Automação em Powershell para reiniciar VMs buscando Tag ##
 
 # Sign in to Azure using the managed identity
 $AzureConnection = Connect-AzAccount -Identity
